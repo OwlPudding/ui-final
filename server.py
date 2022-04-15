@@ -4,21 +4,26 @@ from flask import Response, request, jsonify
 
 app = Flask(__name__)
 
+
+# we can also split questions into quarter =[], half=[], making it easier to learn a specific type of note
+# then for learn/quiz, just randomly pull questions from each list
+# that makes the learn path a bit more complicated though
+
 LEARN_QUESTIONS = [
     {
         "id": 1,
-        "type": "whole",
-        "question": "michael scott"
+        "type": "whole note",
+        "info": "4 beats. The whole note has a note head in the shape of a hollow oval but with no note stem. Since it is equal to four quarter notes, it occupies the entire length of a measure in 4/4 time."
     },
     {
         "id": 2,
-        "type": "quarter",
-        "question": "jim halpert"
+        "type": "half note",
+        "info": "2 beats. half the duration of a whole note. notated with a hollow oval notehead like a whole note and straight note stem with no flags like a quarter note."
     },
     {
         "id": 3,
-        "type": "quarter",
-        "question": "jim halpert"
+        "type": "quarter note",
+        "info": "1 beat. one quarter of the duration of a whole note. notated with a filled-in oval note head and a straight, flagless stem. the stem can either go up or down."
     },
 ]
 
@@ -26,7 +31,9 @@ QUIZ_QUESTIONS = [
 {
         "id": 1,
         "type": "whole",
-        "question": "michael scott"
+        "question": "what type of note is this?",
+        "answers" : ["whole", "half", "quarter", "eighth"],
+        "correct" : 0, # can also have this be whole instead of the correct index
     },
     {
         "id": 2,
