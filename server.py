@@ -52,18 +52,71 @@ QUIZ_QUESTIONS = [
         "id": 1,
         "type": "whole",
         "question": "what type of note is this?",
-        "answers" : ["whole", "half", "quarter", "eighth"],
+        "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
         "correct" : 0, # can also have this be whole instead of the correct index
     },
     {
         "id": 2,
         "type": "quarter",
-        "question": "jim halpert"
+        "question": "what type of note is this?",
+        "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "correct" : 2, 
     },
     {
         "id": 3,
         "type": "quarter",
-        "question": "jim halpert"
+        "question": "what type of note is this?",
+        "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "correct" : 1, 
+    },
+    {
+        "id": 4,
+        "type": "quarter",
+        "question": "what type of note is this?",
+        "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "correct" : 1, 
+    },
+    {
+        "id": 5,
+        "type": "quarter",
+        "question": "what type of note is this?",
+        "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "correct" : 1, 
+    },
+    {
+        "id": 6,
+        "type": "quarter",
+        "question": "what type of note is this?",
+        "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "correct" : 1, 
+    },
+    {
+        "id": 7,
+        "type": "quarter",
+        "question": "what type of note is this?",
+        "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "correct" : 1, 
+    },
+    {
+        "id": 8,
+        "type": "quarter",
+        "question": "what type of note is this?",
+        "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "correct" : 1, 
+    },
+    {
+        "id": 9,
+        "type": "quarter",
+        "question": "what type of note is this?",
+        "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "correct" : 1, 
+    },
+    {
+        "id": 10,
+        "type": "quarter",
+        "question": "what type of note is this?",
+        "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "correct" : 1, 
     },
 ]
 
@@ -103,9 +156,9 @@ def quiz(quiz_id):
     return render_template('quiz.html', quizQ=quizQ)
 
 
-@app.route('/hello/<name>')
-def hello_name(name=None):
-    return render_template('hello_name.html', name=name)
+@app.route('/endpage')
+def endpage():
+    return render_template('endpage.html')
 
 
 # AJAX FUNCTIONS
