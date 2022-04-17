@@ -5,6 +5,12 @@ $(document).ready(function() {
     $(".container .learnNoteType").text(learnQ["type"])
     $(".container .learnNoteInfo .info").text(learnQ["info"])
 
+    let new_div = $(`
+            <img src="${learnQ["img1"]}" alt="${learnQ["type"]} picture" class = "pic1">
+            <img src="${learnQ["img2"]}" alt="${learnQ["type"]} picture" class = "pic2">
+            `);
+            $(".image").append(new_div);
+
     $("#next").click(function(){
     let curr = window.location.pathname.split("/").pop()
     let curr_int = parseInt(curr)
