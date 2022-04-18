@@ -57,14 +57,6 @@ QUIZ_QUESTIONS = [
     },
     {
         "id": 2,
-        "type": "half",
-        "img": "https://pngset.com/images/half-half-note-music-note-icon-text-electronics-gray-symbol-transparent-png-1886606.png",
-        "question": "How many beats does this note get",
-        "answers": ["1", "2", "4", "1/2"],
-        "correct": 1,
-    },
-    {
-        "id": 2,
         "type": "quarter",
         "question": "what type of note is this?",
         "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
@@ -155,41 +147,24 @@ def learn(learn_id):
     return render_template('learn.html', learnQ=learnQ)
 
 
-@app.route('/quiz/<path:quiz_id>')
+@app.route('/quiz/<path:quiz_id>', methods=['POST', 'GET'])
 def quiz(quiz_id):
-    for question in QUIZ_QUESTIONS:
-        if int(question["id"]) == int(quiz_id):
-            quizQ = question
-    return render_template('quiz.html', quizQ=quizQ, QUIZ_RESULTS = results)
+    if request.method == "GET":
+        for q in QUIZ_QUESTIONS:
+            if int(q["id"]) == int(quiz_id):
+                quizQ = q
+        return render_template('quiz.html', quizQ=quizQ, QUIZ_RESULTS = QUIZ_RESULTS)
+    else:
+        print("in add entry ajax")
+
+        json_data = request.get_json()
+        QUIZ_RESULTS.append(json_data)
+        return jsonify(QUIZ_RESULTS=QUIZ_RESULTS)
 
 
 @app.route('/endpage')
 def endpage():
-    return render_template('endpage.html')
-
-
-# AJAX FUNCTIONS
-# ajax for people.js
-@app.route('/add_name', methods=['GET', 'POST'])
-def add_name():
-    global data
-    global current_id
-
-    json_data = request.get_json()
-    name = json_data["name"]
-
-    # add new entry to array with 
-    # a new id and the name the user sent in JSON
-    current_id += 1
-    new_id = current_id
-    new_name_entry = {
-        "name": name,
-        "id": current_id
-    }
-    data.append(new_name_entry)
-
-    # send back the WHOLE array of data, so the client can redisplay it
-    return jsonify(data=data)
+    return render_template('endpage.html', QUIZ_RESULTS = QUIZ_RESULTS)
 
 
 if __name__ == '__main__':

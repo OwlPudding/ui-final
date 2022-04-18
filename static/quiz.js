@@ -17,14 +17,36 @@ $(document).ready(function() {
 
     $("#next").click(function(){
         let selected = $("input[type='radio']:checked").val()
+        let ans;
         if(selected == quizQ["correct"]){
             alert("answer correct!")
-            results.push("correct")
+            ans = "correct"
         }else{
             alert("answer incorrect. correct answer is " + quizQ["answers"][quizQ['correct']])
-            results.push("incorrect")
+            ans = "incorrect"
         }
 
+        let data_to_save = {"res" : ans,
+                            "type" : quizQ["type"]
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/quiz/" + quizQ["id"],
+            dataType : "json",
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(data_to_save),
+            success: function(result){
+                console.log(result)
+
+            },
+            error: function(request, status, error){
+                console.log("Error");
+                console.log(request)
+                console.log(status)
+                console.log(error)
+            }
+        });
 
         // to next page
         let curr = window.location.pathname.split("/").pop()
