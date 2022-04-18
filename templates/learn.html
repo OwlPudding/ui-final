@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
+<script>
+    let learnQ = {{learnQ|tojson}}
+</script>
+
+<div class="container">
+
+    <!-- contains text with note type -->
+    <div class="row learnNoteType">
+    </div>
+
+    <!-- contains relevant images and text for learning -->
+    <div class="row learnNoteInfo">
+
+        <!-- IMAGES HERE -->
+        <div class="col-md-6 image">
+        
+        </div>
+
+        <div class="col-md-6 info">
+
+        </div>
+    </div>
+    <br>
+
+    <div class="row learnNoteInfo">
+
+        <!-- INTERACTIVE THINGS HERE -->
+        <div class="col-md-9 interactive">
+        Interactive learning part placeholder
+        <img src="https://www.arealme.com/cover-images/spacebar-test.png" alt="learning pic" class = "pic2">
+        </div>
+
+    </div>
+
+    <!-- contains next button -->
+    <div class="row footer">
+        <div class="col-md-9">
+        </div>
+        <div class="col-md-3">
+            <button type="button" id="next">Next</button>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'main.js') }}"></script>
+
+    <div class="container">
+
+    <div class="row welcome">
+        Thank you for taking the Rhythm Lesson!
+    </div>
+
+    <div class="row welcome">
+        Your Score is: 
+    </div>
+
+        <button type="button" id="learnBtn">Learn Again</button>
+
+        <button type="button" id="quizBtn">Take Quiz Again</button>
+
+    </div>
+
+{% endblock %}

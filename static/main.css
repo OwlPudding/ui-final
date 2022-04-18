@@ -3,3 +3,18 @@
     padding-bottom:  10px;
     color: #8C080C;
 }
+
+.pic1{
+    width: 50%;
+}
+.pic2{
+    width: 100%;
+}
+.welcome{
+    font-size: x-large;
+}
+
+.learnNoteType{
+    font-size: large;
+    font-weight: bold;
+}
