@@ -2,7 +2,10 @@
 
 {% block content %}
 
-    <script type="text/javascript" src="{{ url_for('static', filename = 'main.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'endpage.js') }}"></script>
+    <script>
+    let QUIZ_RESULTS = {{ QUIZ_RESULTS | tojson}}
+    </script>
 
     <div class="container">
 
@@ -10,7 +13,7 @@
         Thank you for taking the Rhythm Lesson!
     </div>
 
-    <div class="row welcome">
+    <div class="row resultScore">
         Your Score is: 
     </div>
 
