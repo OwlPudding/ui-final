@@ -2,6 +2,7 @@
 
 {% block content %}
 <script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'playback.js') }}"></script>
 <script>
     let learnQ = {{learnQ|tojson}}
 </script>
@@ -29,9 +30,18 @@
     <div class="row learnNoteInfo">
 
         <!-- INTERACTIVE THINGS HERE -->
-        <div class="col-md-9 interactive">
-        Interactive learning part placeholder
-        <img src="https://www.arealme.com/cover-images/spacebar-test.png" alt="learning pic" class = "pic2">
+        <div class="col-md-12 interactive">
+        <h1>playback</h1>
+        <p>tap the <u>spacebar</u> when the note overlaps the green line</p>
+        <p>Score: <span id="note-count"></span>/<span id="note-count-score"></span></p>
+        <div class="main">
+            <!-- <span id="countdown"></span> -->
+            <span id="status-message"></span>
+            <div id="line"></div>
+            <div id="notes"></div>
+            <img src="{{ url_for('static', filename = 'img/score.jpeg') }}" alt="musical score">
+        </div>
+        <button id="play">play</button>
         </div>
 
     </div>
