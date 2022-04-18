@@ -16,8 +16,14 @@ $(document).ready(function() {
     let curr_int = parseInt(curr)
         curr_int += 1
     const parent_path = window.location.origin;
-    window.location.replace(parent_path+'/learn/'+encodeURIComponent(curr_int))
+    if(curr_int > 5){
+        window.location.replace(parent_path+'/quiz/'+encodeURIComponent(1))
+    }else{
+        window.location.replace(parent_path+'/learn/'+encodeURIComponent(curr_int))
+    }
     })
+
+    
 
 });
 

@@ -18,3 +18,53 @@
     font-size: large;
     font-weight: bold;
 }
+
+/* INTERACTIVE PLAYBACK STYLES */
+.interactive .main {
+position:   relative;
+}
+.interactive #countdown {
+    position: absolute;
+    right: 0;
+    left: 0;
+    text-align: center;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    font-size: 200px;
+    background: #ffffffb8;
+    z-index: 1;
+    color: #f22f2f;
+}
+.interactive #status-message {
+    position: absolute;
+    left: 300px;
+    font-size: 30px;
+    margin: auto;
+    width: fit-content;
+    top: 20px;
+}
+.interactive #line {
+    position: absolute;
+    left: 270px;
+    height: 100%;
+    width: 15px;
+    background-color: #00d30080;
+}
+.interactive #notes {
+    position: absolute;
+    left: 345px;
+    bottom: 92.5px;
+}
+.interactive #notes .note {
+    width: 60px;
+    /* margin-right: 60px; */
+}
+.interactive #play {
+    margin-top: 25px;
+    margin-left: 67.5px;
+}
+.interactive #play:hover {
+    outline: 1px solid black;
+    cursor: pointer;
+}
