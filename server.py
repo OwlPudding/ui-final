@@ -160,7 +160,7 @@ def quiz(quiz_id):
     for question in QUIZ_QUESTIONS:
         if int(question["id"]) == int(quiz_id):
             quizQ = question
-    return render_template('quiz.html', quizQ=quizQ)
+    return render_template('quiz.html', quizQ=quizQ, QUIZ_RESULTS = results)
 
 
 @app.route('/endpage')

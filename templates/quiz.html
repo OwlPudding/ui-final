@@ -3,7 +3,8 @@
 {% block content %}
 <script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
 <script>
-    let quizQ = {{quizQ|tojson}}
+    let quizQ = {{quizQ|tojson}};
+    let results = {{ results|tojson }}
 </script>
 
 <div class="container">
@@ -16,11 +17,6 @@
 
     </div>
 
-    <!-- contains choices -->
-    <div class="row quizAnswers">
-
-        
-    </div>
     <br>
 
     <div class="row quizInfo">
@@ -30,6 +26,11 @@
         Interactive quiz part placeholder
         <img src="https://i0.wp.com/www.dailycal.org/assets/uploads/2013/11/test-creative-commons-e1443372157633.jpg?ssl=1" alt="learning pic" class = "pic2">
         </div>
+
+    </div>
+    <!-- contains choices -->
+    <div class="row quizAnswers">
+
 
     </div>
 
