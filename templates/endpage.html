@@ -3,8 +3,11 @@
 {% block content %}
 
     <script type="text/javascript" src="{{ url_for('static', filename = 'endpage.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'main.js') }}"></script>
+
     <script>
     let QUIZ_RESULTS = {{ QUIZ_RESULTS | tojson}}
+    let LEARN_TIME = {{ LEARN_TIME | tojson}}
     </script>
 
     <div class="container">
@@ -15,6 +18,10 @@
 
     <div class="row resultScore">
         Your Score is: 
+    </div>
+
+    <div class="row learnedTime">
+        
     </div>
 
         <button type="button" id="learnBtn">Learn Again</button>

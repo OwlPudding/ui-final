@@ -58,9 +58,10 @@ QUIZ_QUESTIONS = [
     {
         "id": 2,
         "type": "quarter",
-        "question": "what type of note is this?",
+        "question": "what type of note is the first note?",
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4Ji27cJr8G4-1SAkAyzxVzLJ_VJ-wVLQKg&usqp=CAU",
         "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
-        "correct" : 2,
+        "correct" : 1,
     },
     {
         "id": 3,
@@ -124,6 +125,10 @@ LEARN_RESULTS = [
 
 ]
 
+LEARN_TIME = [
+    
+]
+
 QUIZ_RESULTS = [
 
 ]
@@ -138,13 +143,19 @@ def index():
 
 
 # LEARN
-@app.route('/learn/<path:learn_id>')
+@app.route('/learn/<path:learn_id>', methods=['POST', 'GET'])
 def learn(learn_id):
-    for question in LEARN_QUESTIONS:
-        if int(question["id"]) == int(learn_id):
-            learnQ = question
+    if request.method == "GET":
+        for question in LEARN_QUESTIONS:
+            if int(question["id"]) == int(learn_id):
+                learnQ = question
+        return render_template('learn.html', learnQ=learnQ, LEARN_TIME = LEARN_TIME)
+    else:
+        print("in add entry ajax")
 
-    return render_template('learn.html', learnQ=learnQ)
+        json_data = request.get_json()
+        LEARN_TIME.append(json_data)
+        return jsonify(LEARN_TIME=LEARN_TIME)
 
 
 @app.route('/quiz/<path:quiz_id>', methods=['POST', 'GET'])
@@ -164,7 +175,7 @@ def quiz(quiz_id):
 
 @app.route('/endpage')
 def endpage():
-    return render_template('endpage.html', QUIZ_RESULTS = QUIZ_RESULTS)
+    return render_template('endpage.html', QUIZ_RESULTS = QUIZ_RESULTS, LEARN_TIME = LEARN_TIME)
 
 
 if __name__ == '__main__':
