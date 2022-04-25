@@ -2,9 +2,11 @@ const NOTE_SIZE  = 60;
 const SPACE_SIZE = 80; // 120 og
 const noteVals = {
   'w': {
+    img: "/static/img/whole.png",
     space: (4 * SPACE_SIZE) + (3 * NOTE_SIZE),
   },
   'h': {
+    img: "/static/img/half.png",
     space: (2 * SPACE_SIZE) + NOTE_SIZE,
   },
   'q': {
@@ -12,7 +14,8 @@ const noteVals = {
     space: SPACE_SIZE,
   },
   'e': {
-    space: NOTE_SIZE,
+    img: "/static/img/eighth.png",
+    space: (1/10) * NOTE_SIZE,
   }
 };
 
@@ -27,16 +30,12 @@ $(document).ready(function() {
   const statusMessage = $("#status-message");
   const noteCounter = $("#note-count");
   const noteCounterScore = $("#note-count-score");
+
   const linePos = line.offset();
   linePos.right = linePos.left + line.width();
 
-  const pattern = {
-    measures: [
-      ['q', 'q', 'q', 'q']
-    ],
-    start: 2200, // 2456
-    duration: 2303, // 2403
-  };
+  const pattern = learnQ.pattern;
+
   function insertMeasure(measure) {
     measure.forEach(function (l, i) {
       const note = noteVals[l];
@@ -78,7 +77,7 @@ $(document).ready(function() {
   }
 
   playButton.click(function() {
-    const audio = new Audio('/static/tracks/1mq.mp3');
+    const audio = new Audio(track);
     audio.play();
     setTimeout(function () {
       notes.animate({ left: "-200px" }, pattern.duration, 'linear');

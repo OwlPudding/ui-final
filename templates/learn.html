@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static', filename = 'playback.js') }}"></script>
 <script>
     let learnQ = {{learnQ|tojson}}
     let LEARN_TIME = {{ LEARN_TIME | tojson}}
+    const track = "{{ url_for('static', filename = 'tracks/' + learnQ.pattern.track) }}";
 </script>
-
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'playback.js') }}"></script>
 <div class="container">
 
     <!-- contains text with note type -->
@@ -37,6 +37,7 @@
         <p>Score: <span id="note-count"></span>/<span id="note-count-score"></span></p>
         <div class="main">
             <!-- <span id="countdown"></span> -->
+            <div id="note-eater"></div>
             <span id="status-message"></span>
             <div id="line"></div>
             <div id="notes"></div>
