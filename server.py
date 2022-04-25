@@ -89,19 +89,17 @@ LEARN_QUESTIONS = [
 QUIZ_QUESTIONS = [
     {
         "id": 1,
+        "type": "drag",
+        "track": "quiz/1meeq.mp3",
+        "correct": ['e', 'e', 'q', 'e', 'e', 'q'],
+    },
+    {
+        "id": 2,
         "type": "whole",
         "question": "what type of note is this?",
         "img": "https://pianomusictheory.files.wordpress.com/2016/05/whole_note.png",
         "answers": ["whole", "half", "quarter", "eighth"],
         "correct": 0,
-    },
-    {
-        "id": 2,
-        "type": "quarter",
-        "question": "what type of note is the first note?",
-        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd4Ji27cJr8G4-1SAkAyzxVzLJ_VJ-wVLQKg&usqp=CAU",
-        "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
-        "correct" : 1,
     },
     {
         "id": 3,

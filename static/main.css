@@ -77,3 +77,75 @@ position:   relative;
     outline: 1px solid black;
     cursor: pointer;
 }
+
+/* INTERACTIVE QUIZ STYLES */
+#drag-n-drop {
+    position: relative;
+    text-align: center;
+}
+#drag-n-drop #track-container {
+    width: 50%;
+    background: #fff;
+    border: 1px solid darkgray;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+#drag-n-drop #track-container.first {
+    border: 3px solid black;
+}
+#drag-n-drop #track-container #track-text {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+#drag-n-drop #note-canvas {
+    position: absolute;
+    height: 360px;
+    width: 100%;
+}
+#drag-n-drop #note-canvas #notes {
+    position: absolute;
+    left: 265px;
+    bottom: 95.5px;
+    display: flex;
+    align-items: flex-end;
+}
+#drag-n-drop #note-canvas #notes .drag-note:hover {
+    cursor: pointer;
+    opacity: 0.25;
+}
+#drag-n-drop #note-canvas.ui-droppable-active {
+    background: #b5ffb547;
+}
+#drag-n-drop #score.hidden,
+#drag-n-drop #note-zone-container.hidden {
+    opacity: 0.25;
+    pointer-events: none;
+}
+#drag-n-drop #note-zone-container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 15px 0;
+    background: #f5f5f5;
+}
+#drag-n-drop #note-zone-container #note-zone {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+#drag-n-drop #note-zone-container #note-zone .drag-note {
+    cursor: move;
+}
+#drag-n-drop #note-canvas #notes .drag-note,
+#drag-n-drop #note-canvas #notes .drag-note.ui-draggable-dragging,
+#drag-n-drop #note-zone-container #note-zone .drag-note {
+    margin-right: 20px;
+    height: 140px;
+}
+#drag-n-drop #note-canvas #notes .drag-note#w,
+#drag-n-drop #note-zone-container #note-zone .drag-note#w {
+    height: 42.5px;
+}

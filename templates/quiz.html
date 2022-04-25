@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
 <script>
     let quizQ = {{quizQ|tojson}};
-    let QUIZ_RESULTS = {{ QUIZ_RESULTS | tojson}}
+    let QUIZ_RESULTS = {{ QUIZ_RESULTS | tojson}};
 </script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
 
 <div class="container">
 
@@ -22,9 +22,23 @@
     <div class="row quizInfo">
 
         <!-- INTERACTIVE THINGS HERE -->
-        <div class="col-md-9 interactive">
-        Interactive quiz part placeholder
-        <img src="https://i0.wp.com/www.dailycal.org/assets/uploads/2013/11/test-creative-commons-e1443372157633.jpg?ssl=1" alt="learning pic" class = "pic2">
+        <div id="drag-n-drop">
+            <div id="track-container" class="first">
+                <p id="track-text">LISTEN FIRST</p>
+            </div>
+            <div id="note-canvas">
+                <div id="notes"></div>
+            </div>
+            <img id="score" src="{{ url_for('static', filename = 'img/score.jpeg') }}" alt="musical score" class="hidden"/>
+            <div id="note-zone-container" class="hidden">
+                <p>Drag and drop notes from here to the score</p>
+                <div id="note-zone">
+                    <img id="e" class="drag-note" src="{{ url_for('static', filename = 'img/eighth.png') }}"  alt="eighth note" />
+                    <img id="q" class="drag-note" src="{{ url_for('static', filename = 'img/quarter.png') }}" alt="quarter note" />
+                    <img id="h" class="drag-note" src="{{ url_for('static', filename = 'img/half.png') }}"    alt="half note" />
+                    <img id="w" class="drag-note" src="{{ url_for('static', filename = 'img/whole.png') }}"   alt="whole note" />
+                </div>
+            </div>
         </div>
 
     </div>
