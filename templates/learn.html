@@ -13,9 +13,11 @@
     <!-- contains text with note type -->
     <div class="row learnNoteType">
     </div>
+    <br>
 
     <!-- contains relevant images and text for learning -->
     <div class="row learnNoteInfo">
+        
 
         <!-- IMAGES HERE -->
         <div class="col-md-6 image">
@@ -28,12 +30,21 @@
     </div>
     <br>
 
+    <div class="row">
+        <div class="col-md-6">
+            <h1>playback</h1>
+            <p>tap the <u>spacebar</u> when the note overlaps the green line</p>
+        </div>
+
+        <div class="col-md-6">
+            <img src="https://www.arealme.com/cover-images/spacebar-test.png" class="picspace">
+        </div>
+    </div>
+
     <div class="row learnNoteInfo">
 
         <!-- INTERACTIVE THINGS HERE -->
         <div class="col-md-12 interactive">
-        <h1>playback</h1>
-        <p>tap the <u>spacebar</u> when the note overlaps the green line</p>
         <p>Score: <span id="note-count"></span>/<span id="note-count-score"></span></p>
         <div class="main">
             <!-- <span id="countdown"></span> -->
@@ -43,20 +54,22 @@
             <div id="notes"></div>
             <img src="{{ url_for('static', filename = 'img/score.jpeg') }}" alt="musical score">
         </div>
-        <button id="play">play</button>
+        <button id="play" class = "btn btn-success btn-lg">play</button>
         </div>
+        
 
     </div>
+    <br>
 
     <!-- contains next button -->
     <div class="row footer">
         <div class="col-md-3">
-            <button type="button" id="previous">Previous</button>
+            <button type="button" id="previous" class="btn btn-secondary btn-lg">Previous</button>
         </div>
         <div class="col-md-6">
         </div>
         <div class="col-md-3">
-            <button type="button" id="next">Next</button>
+            <button type="button" id="next" class = "btn btn-success btn-lg">Next</button>
         </div>
     </div>
 

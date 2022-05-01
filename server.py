@@ -27,7 +27,7 @@ LEARN_QUESTIONS = [
     {
         "id": 2,
         "type": "half note",
-        "img1": "https://pngset.com/images/half-half-note-music-note-icon-text-electronics-gray-symbol-transparent-png-1886606.png",
+        "img1": "https://qph.fs.quoracdn.net/main-qimg-dc7b3d45c40cdae873068b14187077e7",
         "img2": "https://www.skoove.com/blog/wp-content/uploads/2019/08/image3.png",
         "info": "2 beats. half the duration of a whole note. notated with a hollow oval notehead like a whole note and straight note stem with no flags like a quarter note.",
         "pattern": {

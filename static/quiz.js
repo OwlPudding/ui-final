@@ -96,7 +96,7 @@ $(document).ready(function() {
                 $(".photo").append(new_div);
 
         for(let i=0; i<quizQ["answers"].length; i++){
-            let radioBtn = $('<input type="radio" value=' + i +' name="rbtnCount" /> <label>' + quizQ["answers"][i] + ' </label>');
+            let radioBtn = $('<input type="radio" value=' + i +' name="rbtnCount" /> <label class = "quizchoice" >' + quizQ["answers"][i] + ' </label>');
             $(".quizAnswers").append(radioBtn)
 
         }

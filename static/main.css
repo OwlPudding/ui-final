@@ -3,6 +3,34 @@
     padding-bottom:  10px;
     color: #8C080C;
 }
+.grad1 {
+    background-color: #2C6C91; /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, #2C6C91 , #438796);
+    color: white;
+  }
+
+.lightblue{
+    background-color: #F4FDFF;
+}
+
+.salmon{
+    background-color: #FAC1B5;
+}
+
+.lightgreen{
+    background-color: rgb(189, 245, 189);
+}
+
+.lightgray{
+    background-color: lightgray;
+}
+
+
+p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+}
+
 
 .pic1{
     width: 50%;
@@ -10,13 +38,36 @@
 .pic2{
     width: 75%;
 }
+.picspace{
+    width: 40%;
+}
 .welcome{
     font-size: x-large;
 }
+.center {
+    text-align: center;
+  }
 
 .learnNoteType{
-    font-size: large;
+    font-size: 50px;
     font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.quizQuestion{
+    font-size: x-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.quizchoice{
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100px;
+}
+
+.learnNoteInfo{
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* INTERACTIVE PLAYBACK STYLES */

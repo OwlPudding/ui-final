@@ -8,7 +8,6 @@ $(document).ready(function() {
     $(".container .learnNoteInfo .info").text(learnQ["info"])
 
     let new_div = $(`
-            <img src="${learnQ["img1"]}" alt="${learnQ["type"]} picture" class = "pic1">
             <img src="${learnQ["img2"]}" alt="${learnQ["type"]} picture" class = "pic2">
             `);
             $(".image").append(new_div);
