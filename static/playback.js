@@ -26,14 +26,18 @@ function bpmToMS(bpm) {
 $(document).ready(function() {
   const line = $("#line");
   const notes = $("#notes");
+  const countdown  = $("#countdown");
   const playButton = $("#play");
+  const replayButton = $("#replay");
   const statusMessage = $("#status-message");
   const noteCounter = $("#note-count");
+  const spacebarIcon = $("#spacebar-icon");
   const noteCounterScore = $("#note-count-score");
 
   const linePos = line.offset();
   linePos.right = linePos.left + line.width();
 
+  const originalNotesPos = notes.css("left");
   const pattern = learnQ.pattern;
 
   function insertMeasure(measure) {
@@ -76,13 +80,45 @@ $(document).ready(function() {
     });
   }
 
-  playButton.click(function() {
+  function startCountdown(delay) {
+    let x = 4;
+    countdown.html(x);
+    let intervalID = window.setInterval(function () {
+      if (x-- === 1) {
+        window.clearInterval(intervalID);
+        countdown.css("opacity", 0);
+        $("#next").removeClass("disabled-button");
+      } else {
+        countdown.html(x);
+      }
+    }, delay);
+  }
+
+  function mainSequence() {
+    noteCount = 0;
+    score = 0;
+    noteCounter.html(score);
     const audio = new Audio(track);
     audio.play();
-    setTimeout(function () {
-      notes.animate({ left: "-200px" }, pattern.duration, 'linear');
+    let animateTimeout = setTimeout(function () {
+      notes.animate({ left: "-200px" }, pattern.duration, 'linear', function() {
+        $(document.body).unbind("keypress");
+        playButton.remove();
+        countdown.html("");
+        countdown.css("opacity", 1);
+        replayButton.css("display", "initial");
+      });
       detectCollisions();
+      window.clearTimeout(animateTimeout);
     }, pattern.start);
+    startCountdown(pattern.countdownDelay);
+    replayButton.css("display", "none");
     playButton.remove();
+  }
+
+  replayButton.click(function() {
+    notes.css("left", originalNotesPos);
+    mainSequence();
   });
+  playButton.click(mainSequence);
 });

@@ -40,7 +40,8 @@ $(document).ready(function() {
         let curr_int = parseInt(curr)
             curr_int += 1
         const parent_path = window.location.origin;
-        if(curr_int > 5){
+        console.log("CURR INT", curr_int);
+        if(curr_int > 4){
             window.location.replace(parent_path+'/quiz/'+encodeURIComponent(1))
         }else{
             window.location.replace(parent_path+'/learn/'+encodeURIComponent(curr_int))

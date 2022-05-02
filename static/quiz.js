@@ -70,10 +70,14 @@ $(document).ready(function() {
        ansHandler = function() {
            let correct = true;
            const userNotes = Array.from($("#notes").children());
-            for (let i = 0; i < userNotes.length; i++) {
-                if ($(userNotes[i]).attr('id') != quizQ.correct[i]) {
-                    correct = false;
-                    break;
+            if (userNotes.length === 0) {
+                correct = false;
+            } else {
+                for (let i = 0; i < userNotes.length; i++) {
+                    if ($(userNotes[i]).attr('id') != quizQ.correct[i]) {
+                        correct = false;
+                        break;
+                    }
                 }
             }
             
