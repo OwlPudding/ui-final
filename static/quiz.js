@@ -82,12 +82,11 @@ $(document).ready(function() {
             }
             
             if (correct) {
-                alert("answer correct!");
                 return "correct";
             } else {
-                alert(`answer incorrect! the correct answer was: ${quizQ["correct"].map(function(n) {
-                    return noteSpace[n].name;
-                }).join(", ")}`);
+                //     alert(`answer incorrect! the correct answer was: ${quizQ["correct"].map(function(n) {
+                //     return noteSpace[n].name;
+                // }).join(", ")}`);
                 return "incorrect";
             }
        }
@@ -108,10 +107,8 @@ $(document).ready(function() {
         ansHandler = function() {
             let selected = $("input[type='radio']:checked").val();
             if(selected == quizQ["correct"]){
-                alert("answer correct!");
                 return "correct";
             }else{
-                alert("answer incorrect. correct answer is " + quizQ["answers"][quizQ['correct']]);
                 return "incorrect";
             }
         };
