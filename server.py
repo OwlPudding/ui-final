@@ -20,8 +20,8 @@ LEARN_QUESTIONS = [
             "measures": [
                 ['w']
             ],
-            "start": 2200, #2456
-            "duration": 2303, #2403
+            "start": 2200,  # 2456
+            "duration": 2303,  # 2403
             "countdownDelay": 575,
         },
     },
@@ -34,10 +34,10 @@ LEARN_QUESTIONS = [
         "pattern": {
             "track": "1mhh.mp3",
             "measures": [
-                ['h','h']
+                ['h', 'h']
             ],
-            "start": 2200, #2457,
-            "duration": 2303, #1845,
+            "start": 2200,  # 2457,
+            "duration": 2303,  # 1845,
             "countdownDelay": 575,
         },
     },
@@ -52,8 +52,8 @@ LEARN_QUESTIONS = [
             "measures": [
                 ['q', 'q', 'q', 'q']
             ],
-            "start": 2200, #2456
-            "duration": 2303, #2403
+            "start": 2200,  # 2456
+            "duration": 2303,  # 2403
             "countdownDelay": 575,
         },
     },
@@ -68,8 +68,8 @@ LEARN_QUESTIONS = [
             "measures": [
                 ['e', 'e', 'e', 'e', 'e', 'e', 'e', 'e']
             ],
-            "start": 2225, #2456
-            "duration": 2925,# 2403, #2303, #2403
+            "start": 2225,  # 2456
+            "duration": 2925,  # 2403, #2303, #2403
             "countdownDelay": 625,
         },
     },
@@ -95,32 +95,32 @@ QUIZ_QUESTIONS = [
         "type": "quarter",
         "question": "what type of note is this?",
         "img": "https://www.musictheoryacademy.com/wp-content/uploads/2020/06/Music-Theory-Beginners-Quiz-quarter-note.jpg",
-        "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
-        "correct" : 2, 
+        "answers": ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "correct": 2,
     },
     {
         "id": 4,
         "type": "quarter",
         "question": "what type of note is the first note?",
         "img": "https://quizizz.com/media/resource/gs/quizizz-media/quizzes/d6a1f5df-b2ef-4d72-beba-6e5850795aa8",
-        "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
-        "correct" : 3, 
+        "answers": ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "correct": 3,
     },
     {
         "id": 5,
         "type": "quarter",
         "question": "what type of note is the second note?",
         "img": "https://quizizz.com/media/resource/gs/quizizz-media/quizzes/d6a1f5df-b2ef-4d72-beba-6e5850795aa8",
-        "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
-        "correct" : 3, 
+        "answers": ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "correct": 3,
     },
     {
         "id": 6,
         "type": "quarter",
         "question": "what type of note is the third note?",
         "img": "https://quizizz.com/media/resource/gs/quizizz-media/quizzes/d6a1f5df-b2ef-4d72-beba-6e5850795aa8",
-        "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
-        "correct" : 2, 
+        "answers": ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "correct": 2,
     },
     {
         "id": 7,
@@ -139,8 +139,8 @@ QUIZ_QUESTIONS = [
         "type": "quarter",
         "question": "what type of note is the sixth note?",
         "img": "https://quizizz.com/media/resource/gs/quizizz-media/quizzes/d6a1f5df-b2ef-4d72-beba-6e5850795aa8",
-        "answers" : ["whole", "half", "quarter", "eighth", "sixteenth"],
-        "correct" : 3, 
+        "answers": ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "correct": 3,
     },
     {
         "id": 10,
@@ -155,7 +155,7 @@ LEARN_RESULTS = [
 ]
 
 LEARN_TIME = [
-    
+
 ]
 
 QUIZ_RESULTS = [
@@ -179,13 +179,14 @@ def learn(learn_id):
         for question in LEARN_QUESTIONS:
             if int(question["id"]) == int(learn_id):
                 lq = question
-        return render_template('learn.html', learnQ=lq, LEARN_TIME = LEARN_TIME)
+        return render_template('learn.html', learnQ=lq, LEARN_TIME=LEARN_TIME)
     else:
         print("in add entry ajax")
 
         json_data = request.get_json()
         LEARN_TIME.append(json_data)
         return jsonify(LEARN_TIME=LEARN_TIME)
+
 
 # QUIZ
 @app.route('/quiz/<path:quiz_id>', methods=['POST', 'GET'])
@@ -194,18 +195,25 @@ def quiz(quiz_id):
         for q in QUIZ_QUESTIONS:
             if int(q["id"]) == int(quiz_id):
                 quizQ = q
-        return render_template('quiz.html', quizQ=quizQ, QUIZ_RESULTS = QUIZ_RESULTS)
+        return render_template('quiz.html', quizQ=quizQ, QUIZ_RESULTS=QUIZ_RESULTS)
     else:
-        print("in add entry ajax")
+        print("in post quiz")
 
         json_data = request.get_json()
         QUIZ_RESULTS.append(json_data)
         return jsonify(QUIZ_RESULTS=QUIZ_RESULTS)
 
 
-@app.route('/endpage')
+@app.route('/endpage', methods=['POST', 'GET'])
 def endpage():
-    return render_template('endpage.html', QUIZ_RESULTS = QUIZ_RESULTS, LEARN_TIME = LEARN_TIME)
+    if request.method == "GET":
+        return render_template('endpage.html', QUIZ_RESULTS=QUIZ_RESULTS, LEARN_TIME=LEARN_TIME)
+    else:
+        print("HERE")
+        json_data = request.get_json()
+        QUIZ_RESULTS.clear()
+        json_data.clear()
+        return jsonify(QUIZ_RESULTS=json_data)
 
 
 if __name__ == '__main__':

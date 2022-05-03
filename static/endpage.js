@@ -3,14 +3,34 @@ $(document).ready(function() {
     console.log(JSON.stringify(QUIZ_RESULTS))
     let right = 0;
     let wrong = 0;
+    let drag = 0;
+    let quarter = 0;
+    let half = 0;
+    let whole = 0;
     for(let i=0; i<QUIZ_RESULTS.length; i++){
         console.log(QUIZ_RESULTS[i]["res"])
         if(QUIZ_RESULTS[i]["res"] == "correct"){
             right++
-        }else{
+        }else if(QUIZ_RESULTS[i]["res"] == "incorrect"){
             wrong++
         }
+
+        if(QUIZ_RESULTS[i]["type"] == "drag"){
+            drag++
+        }else if(QUIZ_RESULTS[i]["type"] == "whole"){
+            whole++
+        }else if(QUIZ_RESULTS[i]["type"] == "quarter"){
+            quarter++
+        }else if(QUIZ_RESULTS[i]["type"] == "half"){
+            half++
+        }
     }
+
+    // for most common type of question wrong
+    let types = {drag, whole, quarter, half}
+    let maxVal = Math.max(...Object.values(types))
+    let key = Object.keys(types).find(key => types[key] === maxVal)
+
 
     let max = 0;
     let min = Infinity;
@@ -33,7 +53,33 @@ $(document).ready(function() {
         }
     }
 
-    $(".container .resultScore").text("Correct: " + right + " Incorrect: " + wrong)
+    $(".container .resultScore").text("Correct: " + right + ", Incorrect: " + wrong)
+    $(".container .toReview").append("Topic to Review: " + key)
+
     $(".container .learnedTime").text("You Learned " + names[max_note] + " notes for the longest and " + names[min_note] + " notes for the shortest.")
+
+
+
+
+    // reset quiz results
+
+     $.ajax({
+            type: "POST",
+            url: "/endpage",
+            dataType : "json",
+            contentType: "application/json; charset=utf-8",
+            data : JSON.stringify(QUIZ_RESULTS),
+            success: function(result){
+                console.log(result)
+
+            },
+            error: function(request, status, error){
+                console.log("Error");
+                console.log(request);
+                console.log(status);
+                console.log(error);
+            }
+        });
+
 
 });
