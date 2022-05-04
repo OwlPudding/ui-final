@@ -113,9 +113,14 @@ $(document).ready(function() {
             }
         };
     }
+
+    let path = this.pathname || window.location.pathname;
+    let part = path.split('/').pop();
+
     $("#next").click(function(){
         let data_to_save = {"res" : ansHandler(),
-                            "type" : quizQ["type"]
+                            "type" : quizQ["type"],
+                            "number" : part,
         }
 
         $.ajax({

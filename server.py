@@ -14,7 +14,7 @@ LEARN_QUESTIONS = [
         "type": "WHOLE NOTE",
         "img1": "https://pianomusictheory.files.wordpress.com/2016/05/whole_note.png",
         "img2": "https://www.skoove.com/blog/wp-content/uploads/2019/08/image9.png",
-        "info": "<b>4 beats.</b> The whole note has a note head in the shape of a hollow oval but with no note stem. Since it is equal to four quarter notes, it occupies the entire length of a measure in 4/4 time.",
+        "info": "4 beats. The whole note has a note head in the shape of a hollow oval but with no note stem. Since it is equal to four quarter notes, it occupies the entire length of a measure in 4/4 time.",
         "pattern": {
             "track": "1mw.mp3",
             "measures": [
@@ -103,7 +103,7 @@ QUIZ_QUESTIONS = [
         "type": "quarter",
         "question": "what type of note is the first note?",
         "img": "https://quizizz.com/media/resource/gs/quizizz-media/quizzes/d6a1f5df-b2ef-4d72-beba-6e5850795aa8",
-        "answers": ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "answers": ["whole", "half", "quarter", "eighth"],
         "correct": 3,
     },
     {
@@ -111,7 +111,7 @@ QUIZ_QUESTIONS = [
         "type": "quarter",
         "question": "what type of note is the second note?",
         "img": "https://quizizz.com/media/resource/gs/quizizz-media/quizzes/d6a1f5df-b2ef-4d72-beba-6e5850795aa8",
-        "answers": ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "answers": ["whole", "half", "quarter", "eighth"],
         "correct": 3,
     },
     {
@@ -119,7 +119,7 @@ QUIZ_QUESTIONS = [
         "type": "quarter",
         "question": "what type of note is the third note?",
         "img": "https://quizizz.com/media/resource/gs/quizizz-media/quizzes/d6a1f5df-b2ef-4d72-beba-6e5850795aa8",
-        "answers": ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "answers": ["whole", "half", "quarter", "eighth"],
         "correct": 2,
     },
     {
@@ -139,7 +139,7 @@ QUIZ_QUESTIONS = [
         "type": "quarter",
         "question": "what type of note is the sixth note?",
         "img": "https://quizizz.com/media/resource/gs/quizizz-media/quizzes/d6a1f5df-b2ef-4d72-beba-6e5850795aa8",
-        "answers": ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "answers": ["whole", "half", "quarter", "eighth"],
         "correct": 3,
     },
     {

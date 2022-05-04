@@ -7,11 +7,13 @@ $(document).ready(function() {
     let quarter = 0;
     let half = 0;
     let whole = 0;
+    let incorrect = [];
     for(let i=0; i<QUIZ_RESULTS.length; i++){
         console.log(QUIZ_RESULTS[i]["res"])
         if(QUIZ_RESULTS[i]["res"] == "correct"){
             right++
         }else if(QUIZ_RESULTS[i]["res"] == "incorrect"){
+            incorrect.push(QUIZ_RESULTS[i]["number"])
             wrong++
         }
 
@@ -53,7 +55,13 @@ $(document).ready(function() {
         }
     }
 
-    $(".container .resultScore").text("Correct: " + right + ", Incorrect: " + wrong)
+
+    $(".container .resultScore").text("Score: " + right + "/10" )
+
+    $(".container .incorrectQuestions").append("Incorrect Questions: ")
+    $(".container .incorrectQuestions").append(incorrect.join(", "))
+
+
     $(".container .toReview").append("Topic to Review: " + key)
 
     $(".container .learnedTime").text("You Learned " + names[max_note] + " notes for the longest and " + names[min_note] + " notes for the shortest.")
