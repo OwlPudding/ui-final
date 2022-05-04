@@ -38,13 +38,13 @@ $(document).ready(function() {
     let min = Infinity;
     let max_note = 0;
     let min_note = 0;
-    let time = [0, 0, 0, 0, 0]
-    let names = ["whole", "half", "quarter", "eighth", "sixteenth"]
+    let time = [0, 0, 0, 0]
+    let names = ["whole", "half", "quarter", "eighth"]
 
     for(let i=0; i<LEARN_TIME.length; i++){
-        time[LEARN_TIME[i]["note"] - 1] = LEARN_TIME[i]["time"]
+        time[LEARN_TIME[i]["note"] - 1] += LEARN_TIME[i]["time"]
     }
-    for(let i=0; i<5; i++){
+    for(let i=0; i<4; i++){
         if(time[i] > max){
             max = time[i]
             max_note = i
