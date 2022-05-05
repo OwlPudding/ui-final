@@ -95,7 +95,7 @@ QUIZ_QUESTIONS = [
         "type": "quarter",
         "question": "what type of note is this?",
         "img": "https://www.musictheoryacademy.com/wp-content/uploads/2020/06/Music-Theory-Beginners-Quiz-quarter-note.jpg",
-        "answers": ["whole", "half", "quarter", "eighth", "sixteenth"],
+        "answers": ["whole", "half", "quarter", "eighth"],
         "correct": 2,
     },
     {
