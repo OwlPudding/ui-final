@@ -23,6 +23,7 @@ LEARN_QUESTIONS = [
             "start": 2200,  # 2456
             "duration": 2303,  # 2403
             "countdownDelay": 575,
+            "endPos": "-200px"
         },
     },
     {
@@ -39,6 +40,7 @@ LEARN_QUESTIONS = [
             "start": 2200,  # 2457,
             "duration": 2303,  # 1845,
             "countdownDelay": 575,
+            "endPos": "-200px"
         },
     },
     {
@@ -55,6 +57,7 @@ LEARN_QUESTIONS = [
             "start": 2200,  # 2456
             "duration": 2303,  # 2403
             "countdownDelay": 575,
+            "endPos": "-200px"
         },
     },
     {
@@ -71,6 +74,7 @@ LEARN_QUESTIONS = [
             "start": 2225,  # 2456
             "duration": 2925,  # 2403, #2303, #2403
             "countdownDelay": 625,
+            "endPos": "-220px"
         },
     },
 ]

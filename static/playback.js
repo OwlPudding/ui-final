@@ -67,7 +67,7 @@ $(document).ready(function() {
           const qNote = $(`#note-${noteCount}`);
           const pos = qNote.offset();
           pos.right = pos.left + NOTE_SIZE;
-          if (pos.left <= linePos.left && pos.right >= linePos.right) {
+          if ((pos.left - 5) <= linePos.left && pos.right >= linePos.right) {
             animateStatus("GOOD!", true);
             score++;
             noteCounter.html(score);
@@ -101,7 +101,7 @@ $(document).ready(function() {
     const audio = new Audio(track);
     audio.play();
     let animateTimeout = setTimeout(function () {
-      notes.animate({ left: "-200px" }, pattern.duration, 'linear', function() {
+      notes.animate({ left: pattern.endPos }, pattern.duration, 'linear', function() {
         $(document.body).unbind("keypress");
         playButton.remove();
         countdown.html("");
